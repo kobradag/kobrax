@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help improve Kaspa Desktop Wallet
+about: Create a report to help improve kobra Desktop Wallet
 title: ''
 labels: ''
 assignees: ''
