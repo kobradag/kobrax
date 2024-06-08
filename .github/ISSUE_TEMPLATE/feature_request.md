@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Kaspa Desktop Wallet
+about: Suggest an idea for kobra Desktop Wallet
 title: ''
 labels: ''
 assignees: ''
