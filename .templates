@@ -1,0 +1,124 @@
+{
+    "kobrad-node-only" : {
+        "description" : "KOBRAD Node",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            }
+        }
+    },
+    "cpu-miner" : {
+        "description" : "CPU Miner",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "threads": 1,
+                    "kobrad-address": "localhost",
+                    "port": "44448"
+                }
+            }
+        }
+    },
+    "gpu-miner" : {
+        "description" : "GPU Miner",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "cuda-workload": 512,
+                    "kobrad-address": "localhost",
+                    "port": "44448"
+                }
+            }
+        }
+    },
+
+    "kobrad-standalone-mining" : {
+        "description" : "Self-Contained KOBRAD Mining",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            },
+            "kobrad:kd1" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten":"0.0.0.0:16310",
+                    "listen": "0.0.0.0:16311",
+                    "profile": 7001,
+                    "connect": "0.0.0.0:44447"
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "t": 1,
+                    "kobrad-address": "localhost",
+			        "port": "44448"
+                }
+            }
+        }
+    },
+    "kobrad-archival-only" : {
+        "description" : "KOBRAD Archival Node",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "archival" : null,
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            }
+        }
+    },
+    "kobrad-archival-mining" : {
+        "description" : "KOBRAD Archival Node + Miner",
+        "modules":{
+            "kobrad:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "archival" : null,
+                    "rpclisten" : "0.0.0.0:44448",
+                    "listen": "0.0.0.0:44447",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "t": 1,
+                    "kobrad-address": "localhost",
+			        "port": "44448"
+                }
+            }
+        }
+    }
+}
