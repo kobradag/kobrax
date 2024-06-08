@@ -12,9 +12,9 @@ const log = new FlowLogger('RPC');
 
 const networks = {
     mainnet: { port: 44448 },
-    testnet: { port: 42422 },
-    simnet: { port: 42424 },
-    devnet: { port: 42426 }
+    testnet: { port: 44450 },
+    simnet: { port: 44452 },
+    devnet: { port: 44454 }
 };
 
 const program = new Command();
