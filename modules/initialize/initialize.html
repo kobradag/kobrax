@@ -67,16 +67,16 @@
 		<h4 slot="info" class="title"><flow-i18n>Data Folder</flow-i18n></h4>
 			<p slot="info" is="i18n-p">
 				Data Folder location is used for storage by all KDX modules.
-				In default configuration this includes Kaspad blockchain data and Kasparov API database.
+				In default configuration this includes Kobrad blockchain data and Kobrarov API database.
 				This location also contains process log files.
 			</p>
 	</flow-form-control>
 
 	<flow-form-control id="settings-templates" icon="fal:file-alt">
-		<flow-i18n caption>Kaspa Configuration</flow-i18n>
+		<flow-i18n caption>Kobra Configuration</flow-i18n>
 		<div slot="input" style="margin-top:16px;">
 			<flow-selector style="margin-right:32px;"id="template-list" label="Select Configuration Template" 
-				selected="kaspad-node-only"
+				selected="kobrad-node-only"
 				mergeattributes="value" 
 				mergeinnerhtml class="template-list"></flow-selector>
 			<flow-selector id="network-list" label="Network" selected="mainnet" 
@@ -91,11 +91,11 @@
 			<flow-checkbox id="settings-disable-upnp" class="block">
 				<flow-i18n>Disable UPNP</flow-i18n>
 			</flow-checkbox>
-			<p>UPNP helps your node to participate in securing the Kaspa network.</p>
+			<p>UPNP helps your node to participate in securing the Kobra network.</p>
 		</div>
-		<h4 slot="info" class="title"><flow-i18n>Kaspa Stack Configuration</flow-i18n></h4>
+		<h4 slot="info" class="title"><flow-i18n>Kobra Stack Configuration</flow-i18n></h4>
 		<p slot="info" is="i18n-p">
-			Select Kaspa stack configuration from templates.
+			Select Kobra stack configuration from templates.
 		</p>
 	</flow-form-control>
 

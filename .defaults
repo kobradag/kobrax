@@ -1,10 +1,10 @@
 {
 	"enableMining" : false,
 	"modules":{
-		"kaspad:kd0" : {
+		"kobrad:kd0" : {
 			"reset-peers" : false,
 			"args":{
-				"rpclisten" : "0.0.0.0:16110",
+				"rpclisten" : "0.0.0.0:44448",
 				"listen": "0.0.0.0:16111",
 				"profile": 7000
 			}

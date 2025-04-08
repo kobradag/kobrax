@@ -1,2 +1,2 @@
 console.log("wallet-worker-core.js")
-require("@kaspa/wallet-worker/worker.js");
+require("@kobra/wallet-worker/worker.js");

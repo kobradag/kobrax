@@ -14,7 +14,7 @@ const Console = require("../../lib/console.js")
 const StatsD = require('node-statsd');
 const semver = require('semver');
 
-const {RPC} = require('@kaspa/grpc-node');
+const {RPC} = require('@kobra/grpc-node');
 import {html, render} from 'lit-html';
 import {repeat} from 'lit-html/directives/repeat.js';
 import {
@@ -28,35 +28,35 @@ window.getLocalSetting = getLocalSetting;
 window.setLocalSetting = setLocalSetting;
 //TODO
 window.PWA_MODULES={};
-window.PWA_MODULES["@kaspa/wallet-pwa"] = "N/A";
+window.PWA_MODULES["@kobra/wallet-pwa"] = "N/A";
 window.PWA_MODULES["@aspectron/flow-ux"] = "N/A";
-window.PWA_MODULES["@kaspa/ux"] = "N/A";
-window.PWA_MODULES["@kaspa/grpc-web"] = "N/A";
-window.PWA_MODULES["@kaspa/wallet"] = "N/A";
-window.PWA_MODULES["@kaspa/grpc"] = "N/A";
-window.PWA_MODULES["@kaspa/core-lib"] = "N/A";
+window.PWA_MODULES["@kobra/ux"] = "N/A";
+window.PWA_MODULES["@kobra/grpc-web"] = "N/A";
+window.PWA_MODULES["@kobra/wallet"] = "N/A";
+window.PWA_MODULES["@kobra/grpc"] = "N/A";
+window.PWA_MODULES["@kobra/core-lib"] = "N/A";
 
 class KDXApp extends FlowApp{
 	render(){
 		let walletMeta = {"generator":"KDX"}
 		let list = [
-			['Kaspa','MIT','Copyright (c) 2020 Kaspa Developers'],
+			['Kobra','MIT','Copyright (c) 2020 Kobra Developers'],
 //			['PostgreSQL','PostgreSQL','Portions Copyright © 1996-2020, The PostgreSQL Global Development Group<br/>Portions Copyright © 1994, The Regents of the University of California'],
 //			['Mosquitto','EDL-V10 EPL-V10','Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors'],
 			['Flow-UX Framework','MIT', 'Copyright (c) ASPECTRON Inc.'],
 			['NWJS','MIT','Copyright (c) 2015 四月橘林'],
 			['Chromium','BSD', 'Copyright (c) The Chromium Authors']
-			// ['Kaspa','MIT','Copyright (c) 2020 Kaspa Developers'],
-			// ['Kaspa','MIT','Copyright (c) 2020 Kaspa Developers'],
+			// ['Kobra','MIT','Copyright (c) 2020 Kobra Developers'],
+			// ['Kobra','MIT','Copyright (c) 2020 Kobra Developers'],
 		];
 		let donationAddresses = [
-			["Devfund donations:", "kaspa:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98"],
-			["Mining address:", "kaspa:pzhh76qc82wzduvsrd9xh4zde9qhp0xc8rl7qu2mvl2e42uvdqt75zrcgpm00"],
-			//["KDX/WebWallet donations:", "kaspa:qrncjga8hej9q59q85ge5js6m4y97el6ahp3m87hyzqdtaq6pf0v7xek7x900"],
+			["Devfund donations:", "kobra:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98"],
+			["Mining address:", "kobra:pzhh76qc82wzduvsrd9xh4zde9qhp0xc8rl7qu2mvl2e42uvdqt75zrcgpm00"],
+			//["KDX/WebWallet donations:", "kobra:qrncjga8hej9q59q85ge5js6m4y97el6ahp3m87hyzqdtaq6pf0v7xek7x900"],
 		]
 		return html`
 		<flow-caption-bar
-			logo="/resources/images/kaspa-logo-light-bg.png">KDX</flow-caption-bar>
+			logo="/resources/images/kobra-logo-light-bg.png">KDX</flow-caption-bar>
 		<tab-content for="home">
 			<flow-form-control id="applications" icon="fal:fire" no-help style='display:none;'>
 				<flow-i18n caption>Applications</flow-i18n>
@@ -67,18 +67,18 @@ class KDXApp extends FlowApp{
 				<div id='process-info-table' class="task-info-container">
 				</div>
 			</flow-form-control>
-			<div id='kaspa-resources'>
+			<div id='kobra-resources'>
 
 				<flow-expandable>
-					<div slot="title" is="i18n-div" caption>KASPA RESOURCES</div>
+					<div slot="title" is="i18n-div" caption>KOBRA RESOURCES</div>
 					<ul style="font-size: 12px;">
 						<li>
-							<flow-shell-link href="https://docs.kas.pa/kaspa/about-kaspa/get-started">
+							<flow-shell-link href="https://docs.kas.pa/kobra/about-kobra/get-started">
 								<flow-i18n>Documentation</flow-i18n>
 							</flow-shell-link>
 						</li>
 						<li><flow-shell-link
-							href="https://github.com/kaspanet/"><flow-i18n>GitHub</flow-i18n></flow-shell-link></li>
+							href="https://github.com/kobradag/"><flow-i18n>GitHub</flow-i18n></flow-shell-link></li>
 						<li><flow-shell-link
 							href="https://discord.gg/vMT39xB"><flow-i18n>Discord Chat</flow-i18n></flow-shell-link></li>
 						<li><flow-link
@@ -89,7 +89,7 @@ class KDXApp extends FlowApp{
 			<flow-expandable class="donation-addresses" no-info _icon="fal:donate">
 				<div slot="title" is="i18n-div" caption>DONATIONS</div>
 				<p is="i18n-p">
-					if you wish to further the development of the kaspa ecosystem, we accept kaspa donations at the following addresses:
+					if you wish to further the development of the kobra ecosystem, we accept kobra donations at the following addresses:
 				</p>
 				${
 					donationAddresses.map((t) => {
@@ -105,7 +105,7 @@ class KDXApp extends FlowApp{
 				}
 			</flow-expandable>
 			<flow-form-control icon="fal:copyright">
-				<flow-i18n>KDX &amp; Kaspa Copyright (c) 2020 Kaspa Developers<br/>
+				<flow-i18n>KDX &amp; Kobra Copyright (c) 2020 Kobra Developers<br/>
 				All Rights Reserved.</flow-i18n><br/>
 			</flow-form-control>
 			<div id='license-info'>
@@ -145,7 +145,7 @@ class KDXApp extends FlowApp{
 				<h4 slot="info" class="title"><flow-i18n>Data Folder</flow-i18n></h4>
 				<p slot="info" is="i18n-p">
 					Data Folder location is used for storage by all KDX modules. 
-					In default configuration this includes Kaspad blockchain data and Kasparov API database.
+					In default configuration this includes Kobrad blockchain data and Kobrarov API database.
 					This location also contains process log files.
 				</p>
 			</flow-form-control>
@@ -202,7 +202,7 @@ class KDXApp extends FlowApp{
 					class="block"><flow-i18n>Use Wallet Address for Mining</flow-i18n></flow-checkbox>
 				<h4 slot="info" class="title"><flow-i18n>Block Generation</flow-i18n></h4>
 				<p slot="info" is="i18n-p">
-					The Enable Mining option starts / stops all configured Kaspaminer instances.
+					The Enable Mining option starts / stops all configured Kobraminer instances.
 				</p>
 			</flow-form-control>
 			<!-- flow-form-control icon="fal:drafting-compass" class="advanced-tool">
@@ -277,7 +277,7 @@ class KDXApp extends FlowApp{
 				<flow-btn slot="input" id="reset-data-folder-btn" class="primary" i18n>Delete data directory and resync</flow-btn>
 				<h4 slot="info" class="title"><flow-i18n>Reset Data Folder</flow-i18n></h4>
 				<p slot="info" is="i18n-p">
-					It will delete datadir (Data Folder) and restart kaspad node to re-sync
+					It will delete datadir (Data Folder) and restart kobrad node to re-sync
 				</p>
 			</flow-form-control>
 			<flow-form-control icon="fal:database">
@@ -285,14 +285,14 @@ class KDXApp extends FlowApp{
 				<flow-btn slot="input" id="reindex-utxo-btn" class="primary" i18n>Reindex UTXO</flow-btn>
 				<h4 slot="info" class="title"><flow-i18n>Reindex UTXO</flow-i18n></h4>
 				<p slot="info" is="i18n-p">
-					Start the kaspad node without enabling the '--utxoindex' parameter until the synchronization is complete, re-enable this parameter. (Can be used to fix inaccurate balance display)
+					Start the kobrad node without enabling the '--utxoindex' parameter until the synchronization is complete, re-enable this parameter. (Can be used to fix inaccurate balance display)
 				</p>
 			</flow-form-control>
 			<div style="height:192px;"></div>
 		</tab-content>
 		<tab-content for="wallet" class="wallet" data-active-display="flex">
-			<kaspa-wallet .walletMeta='${walletMeta}' hideNetwork hidefaucet 
-				_hideQRScanner hideopenwalletlogo></kaspa-wallet>
+			<kobra-wallet .walletMeta='${walletMeta}' hideNetwork hidefaucet 
+				_hideQRScanner hideopenwalletlogo></kobra-wallet>
 		</tab-content>
 		<tab-content for="console" data-active-display="flex" class="vertical-flex term">
 			<flow-terminal id="kobrad-console" class="x-terminal" background="#000" foreground="#FFF"></flow-terminal>
@@ -463,7 +463,7 @@ class KDXApp extends FlowApp{
 			this.initTaskTab(daemon.task);
 			this.refreshApps();
 			const {wallet} = this;
-			if(!wallet || daemon.task.type!='kaspad' || !this.rpcDisconnect){
+			if(!wallet || daemon.task.type!='kobrad' || !this.rpcDisconnect){
 				return
 			}
 
@@ -478,7 +478,7 @@ class KDXApp extends FlowApp{
 		manager.on("before-interrupt", ({daemon, interrupt})=>{
 			console.log("before-interrupt", daemon.task.type, daemon.task)
 			const {wallet} = this;
-			if(!wallet || daemon.task.type!='kaspad')
+			if(!wallet || daemon.task.type!='kobrad')
 				return
 			wallet.disconnectRPC();
 			this.rpcDisconnect = true;
@@ -511,7 +511,7 @@ class KDXApp extends FlowApp{
 		/*
 		manager.on('sync-status', (data) => {
 			//console.log("sync-status:data", data);
-			let wallet = this.wallet || this.qS('kaspa-wallet');
+			let wallet = this.wallet || this.qS('kobra-wallet');
 			const { networkName, sync, headerCount, blockCount, pastMedianTime, pastMedianTimeDiff } = data;
 			wallet.sync = sync;
 			wallet.networkName = networkName;
@@ -554,7 +554,7 @@ class KDXApp extends FlowApp{
 		});
 	}
 	async initWallet() {
-		let wallet = this.qS('kaspa-wallet');
+		let wallet = this.qS('kobra-wallet');
 		this.wallet = wallet;
 		this.applyCompoundConfig();
 		wallet.addEventListener("new-wallet", ()=>{
@@ -564,7 +564,7 @@ class KDXApp extends FlowApp{
 				this.manager?.restartMining();
 			}
 		})
-		let settings = await this.get_default_local_kaspad_settings();
+		let settings = await this.get_default_local_kobrad_settings();
 		let verbose = localStorage.rpcverbose == 1;
 		this.wallet.setRPCBuilder(()=>{
 			const { network, port } = settings;
@@ -576,26 +576,26 @@ class KDXApp extends FlowApp{
 		
 		return Promise.resolve();
 	}
-	async get_default_local_kaspad_settings() {
+	async get_default_local_kobrad_settings() {
 		
 		let {config:daemons} = await this.get("get-modules-config");
 		console.log("############### DAEMONS", daemons);
-		let kaspad = Object.entries(daemons).map(([k,v]) => { 
+		let kobrad = Object.entries(daemons).map(([k,v]) => { 
 			const { args } = v;
 			const [type, ident] = k.split(':');
 			return { type, ident, args};
-		}).filter(o=>o.type=='kaspad').shift();
+		}).filter(o=>o.type=='kobrad').shift();
 
-		if(!kaspad)
-			return null;//{network:"kaspa", port:16110};//{network:"kaspatest", port:16110};
+		if(!kobrad)
+			return null;//{network:"kobra", port:44448};//{network:"kobratest", port:44448};
 
-		const { args } = kaspad;
+		const { args } = kobrad;
 		let networkType = ['testnet','devnet','simnet'].filter(v=>args[v] !== undefined).shift() || 'mainnet';
 		let network = {
-			mainnet : 'kaspa',
-			testnet : 'kaspatest',
-			devnet : 'kaspadev',
-			simnet : 'kaspasim'
+			mainnet : 'kobra',
+			testnet : 'kobratest',
+			devnet : 'kobradev',
+			simnet : 'kobrasim'
 		}[networkType];
 		let { rpclisten } = args;
 		let port = parseInt(rpclisten.split(':').pop());
@@ -705,7 +705,7 @@ class KDXApp extends FlowApp{
 			this.themeInputEl.value = theme=="dark";
 		}
 		if(this.caption)
-			this.caption.logo = `/resources/images/kaspa-logo-${theme}-bg.png`
+			this.caption.logo = `/resources/images/kobra-logo-${theme}-bg.png`
 		this.post("set-app-theme", {theme});
 		document.body.classList.forEach(c=>{
 			if(c.indexOf('flow-theme') === 0 && c!='flow-theme'+theme){
@@ -723,19 +723,19 @@ class KDXApp extends FlowApp{
 		}
 
 		document.body.dispatchEvent(new CustomEvent("flow-theme-changed"));
-		this.querySelector("kaspa-wallet")?.requestUpdate("theme", null)
+		this.querySelector("kobra-wallet")?.requestUpdate("theme", null)
 	}
 	initCaption(){
 		let caption = this.qS('flow-caption-bar');
 		console.log("caption", caption)
 		this.caption = caption;
 		this.caption.close = this.closeWin;
-		this.caption.logo = `/resources/images/kaspa-logo-${this.theme||"light"}-bg.png`;
+		this.caption.logo = `/resources/images/kobra-logo-${this.theme||"light"}-bg.png`;
 
 		caption.version = pkg.version;
 
 		caption.tabs = [{
-			title : "KASPA",
+			title : "KOBRA",
 			id : "home",
 			cls: "home"
 		},{
@@ -808,7 +808,7 @@ class KDXApp extends FlowApp{
 			this.tpl_template = config.ident;
 			this.tpl_network = config.network;
 
-			let miner = Object.keys(config.modules).filter(v=>/^(kaspa|gpu)miner/.test(v));
+			let miner = Object.keys(config.modules).filter(v=>/^(kobra|gpu)miner/.test(v));
 			if(!miner.length)
 				$(blockgenEl).addClass('no-mining');
 		}
@@ -841,7 +841,7 @@ class KDXApp extends FlowApp{
 			config = await this.setConfigTemplate(config, network);
 			this.configEditor.session.setValue(JSON.stringify(config.modules, null, "\t"));
 
-			let miner = Object.keys(config.modules).filter(v=>/^(kaspa|gpu)miner/.test(v));
+			let miner = Object.keys(config.modules).filter(v=>/^(kobra|gpu)miner/.test(v));
 			if(miner.length)
 				$(blockgenEl).removeClass('no-mining');
 			else
@@ -1136,9 +1136,9 @@ class KDXApp extends FlowApp{
 `#	Welcome to KDX ${pkg.version}!
 
 Useful resources:
-- Kaspa Documentation: https://github.com/kaspanet/docs 
-- Kaspa Discord: https://discord.gg/vMT39xB
-- Kaspa GitHub: https://github.com/kaspanet/
+- Kobra Documentation: https://github.com/kobradag/docs 
+- Kobra Discord: https://discord.gg/vMT39xB
+- Kobra GitHub: https://github.com/kobradag/
 - KDX GitHub: https://github.com/aspectron/kobrad
 
 ${changelogContent}`;
@@ -1281,7 +1281,7 @@ ${changelogContent}`;
 		this.showApps(daemons);
 		
 		console.log("initDaemons", daemons);
-		let {params} = this.getModuleArgs('kaspad:', daemons);
+		let {params} = this.getModuleArgs('kobrad:', daemons);
 		let skipUTXOIndexCheck = !!(params?.["skip-utxoindex"])
 		if(skipUTXOIndexCheck)
 			this.wallet.setAttribute('skiputxoindexcheck', true)

@@ -1,7 +1,7 @@
 
 # OSX:
 # this script is useful when running KDX from shell and terminating it with Ctrl+C
-# as doing this may result in NWJS and Kaspa processes remaining in the background.
+# as doing this may result in NWJS and Kobra processes remaining in the background.
 #  
 
 kill -9 $(lsof -ti:7000)

@@ -8,7 +8,7 @@ const MINER_DEFAULT_BRANCH = 'main';
 const E = new Emanator(__dirname, {
     type : argv.includes('build') || flags.innosetup ? 'NODE+NWJS' : 'UTIL',
     guid : 'c1072045-6d98-44d8-9aa5-e9be6c79bd01',
-    group : 'Kaspa',
+    group : 'Kobra',
     ident : 'kobrad',
     suffix : flags.full ? '-dev' : '',
     title : 'KDX',
@@ -65,14 +65,14 @@ const npm = await E.modules.npm({ production : true });
 
 
 
-const kaspad = E.task('kaspad', ['origin'], async () => {
+const kobrad = E.task('kobrad', ['origin'], async () => {
 
     //return true;
     if(E.PLATFORM == 'windows') {
         process.env.PATH = ['C:\\TDM-GCC-64\\bin', ...process.env.PATH.split(';')].join(';');
     }
 
-    let dest = path.join(go.SRC,'github.com/kaspanet/');
+    let dest = path.join(go.SRC,'github.com/kobradag/');
     if((E.flags.reset || E.flags.clean) && fs.existsSync(dest))
         await E.emptyDir(dest);
 
@@ -81,22 +81,22 @@ const kaspad = E.task('kaspad', ['origin'], async () => {
     console.log('branch:',branch);
     
     //const repos = { };
-    const repos = [`kaspad:${branch}`];
+    const repos = [`kobrad:${branch}`];
     if(E.flags['with-extras']) {
-        repos.push(`txgen:${branch}`,`kasparov:${KOBRA_DEFAULT_BRANCH}`);
+        repos.push(`txgen:${branch}`,`kobrarov:${KOBRA_DEFAULT_BRANCH}`);
     }
 
     console.log("REPOS:".brightMagenta,repos);
 
     for(const repo of repos) {
         let [name, git_branch] = repo.split(':');
-        console.log(`git clone https://github.com/kaspanet/${name} branch: ${git_branch || 'master'}`.brightYellow);
-        await git.clone(`https://github.com/kaspanet/${name}`,dest, {branch : git_branch || 'master'});
+        console.log(`git clone https://github.com/kobradag/${name} branch: ${git_branch || 'master'}`.brightYellow);
+        await git.clone(`https://github.com/kobradag/${name}`,dest, {branch : git_branch || 'master'});
     }
 
     let targets = [
-        'kaspad',
-        ...fs.readdirSync(path.join(dest,'kaspad/cmd')).map(f => `kaspad/cmd/${f}`),
+        'kobrad',
+        ...fs.readdirSync(path.join(dest,'kobrad/cmd')).map(f => `kobrad/cmd/${f}`),
     ];
 
 
@@ -129,7 +129,7 @@ const kaspad = E.task('kaspad', ['origin'], async () => {
         E.registerFirewallRule({ name, file : dest, binary : true });
     })
 
-    //E.copy(path.join(dest,'kasparov','database','migrations'),path.join(E.BIN,'database','migrations'));
+    //E.copy(path.join(dest,'kobrarov','database','migrations'),path.join(E.BIN,'database','migrations'));
 });
 
 const miner = E.task('miner', ['origin'], async () => {
@@ -151,7 +151,7 @@ const miner = E.task('miner', ['origin'], async () => {
     console.log('miner dest:', dest);
     
     //const repos = { };
-    const repos = [`kaspa-miner:${branch}`];
+    const repos = [`kobra-miner:${branch}`];
     console.log("REPOS:".brightMagenta,repos);
 
     for(const repo of repos) {
@@ -160,26 +160,26 @@ const miner = E.task('miner', ['origin'], async () => {
         await git.clone(`https://github.com/${account}/${name}`, dest, {branch : git_branch || 'master'});
     }
 
-    let minerDest = path.join(dest, "kaspa-miner");
+    let minerDest = path.join(dest, "kobra-miner");
     console.log('Starting miner build processing...')
 
     let release = !E.flags['miner-debug'];
     let args = {
         release,
-        p:['kaspa-miner']
+        p:['kobra-miner']
     }
 
 //    if(E.PLATFORM != 'macos'){
-//        args.p.push('kaspacuda', 'kaspaopencl');
+//        args.p.push('kobracuda', 'kobraopencl');
 //        if(E.flags['miner-overclock'])
-//            args.features = "default,kaspacuda/overclock";
+//            args.features = "default,kobracuda/overclock";
 //    }
 
     await cargo.build(minerDest, args);
     
     let targetFolder = path.join(minerDest, 'target', release?'release':'debug');
 
-    let file = 'kaspa-miner';
+    let file = 'kobra-miner';
     let name = `${E.title} ${file}`;
     
 
@@ -190,11 +190,11 @@ const miner = E.task('miner', ['origin'], async () => {
     files.set(file, rename)
 
 //    if(E.PLATFORM == 'windows'){
-//        files.set('kaspacuda.dll', 0)
-//        files.set('kaspaopencl.dll', 0)
+//        files.set('kobracuda.dll', 0)
+//        files.set('kobraopencl.dll', 0)
 //    }else if(E.PLATFORM == 'linux'){
-//        files.set('kaspacuda.so', 0)
-//        files.set('kaspaopencl.so', 0)
+//        files.set('kobracuda.so', 0)
+//        files.set('kobraopencl.so', 0)
 //    }
 
     files.forEach((destName, srcName)=>{
@@ -219,7 +219,7 @@ const miner = E.task('miner', ['origin'], async () => {
     })
 
 
-    //E.copy(path.join(dest,'kasparov','database','migrations'),path.join(E.BIN,'database','migrations'));
+    //E.copy(path.join(dest,'kobrarov','database','migrations'),path.join(E.BIN,'database','migrations'));
 });
 
 E.task('remote', ['origin'], async () => {
@@ -236,7 +236,7 @@ E.task('remote', ['origin'], async () => {
 })
 
 if(!E.flags.miner){
-    const aux_deps = E.flags.auxiliary ? ['kaspad','remote'] : ['kaspad', 'miner']
+    const aux_deps = E.flags.auxiliary ? ['kobrad','remote'] : ['kobrad', 'miner']
     E.task('done', aux_deps, async () => {
     })
 }
@@ -269,7 +269,7 @@ if(E.flags.i18n){
 }
 
 
-if(E.flags['local-binaries'] || E.flags['kaspa'] || E.flags.miner) {
+if(E.flags['local-binaries'] || E.flags['kobra'] || E.flags.miner) {
     E.BIN = path.join(E.appFolder,'bin', E.PLATFORM_ARCH);
     mkdirp.sync(E.BIN);
 }
@@ -286,13 +286,13 @@ else if(E.flags.docker) {
     E.runTask('docker');
 }else if(E.flags.i18n) {
     E.runTask('i18n');
-}else if(E.flags['kaspa']) {
-    await kaspad();
+}else if(E.flags['kobra']) {
+    await kobrad();
 }else if(E.flags.miner){
     await miner();
 }
 else if(E.flags['local-binaries']) {
-    E.runTask('kaspad');
+    E.runTask('kobrad');
     E.runTask('aptitude');
 }
 else

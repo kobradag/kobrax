@@ -2,7 +2,7 @@
 
 KDX provides a miniature framework that enables you to easily create an NWJS window within KDX that has access to KDX configuration.
 
-This is an equivalent to a NodeJs application with a web interface that receives KDX + Kaspa Application Stack configuration on startup.
+This is an equivalent to a NodeJs application with a web interface that receives KDX + Kobra Application Stack configuration on startup.
 
 Applets can be located within the KDX application folder inside `apps` subfolder or symlinked to this location.
 Alternatively applets can be configured to run from a custom location via configuration settings.
@@ -27,7 +27,7 @@ property of `packaje.json` manifest file if located within the apps folder:
       "--kobrad",
       "--no-auth",
       "--port=8689",
-      "--kasparov=http://localhost:$KASPAROVD-PORT",
+      "--kobrarov=http://localhost:$KOBRAROVD-PORT",
       "--mqtt-address=mqtt://localhost:$MQTT-PORT"
     ]
 }

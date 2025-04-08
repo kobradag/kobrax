@@ -58,11 +58,11 @@ body{
 	--flow-dialog-btn-padding: 7px 2px;
 	--flow-markdown-icon: url(/node_modules/@aspectron/flow-ux/resources/icons/svg/link.svg);
 
-	--kaspa-wallet-container-padding:0px 5px 5px;
-	--kaspa-wallet-header-margin:0px;
-	--kaspa-wallet-header-border-bottom:0px;
-	--kaspa-wallet-header-padding:0px 10px 5px;
-	--kaspa-wallet-header-logo-diaplay:none;
+	--kobra-wallet-container-padding:0px 5px 5px;
+	--kobra-wallet-header-margin:0px;
+	--kobra-wallet-header-border-bottom:0px;
+	--kobra-wallet-header-padding:0px 10px 5px;
+	--kobra-wallet-header-logo-diaplay:none;
 }
 
 body.flow-theme-dark{
@@ -281,7 +281,7 @@ body.disable:after{z-index:100000;opacity:1;}
 .task-info .task .version i{
 	font-size:0.75rem;font-style:normal;font-family:Consolas;
 }
-.task-info .kaspad{font-family:Consolas;font-size:0.75rem;}
+.task-info .kobrad{font-family:Consolas;font-size:0.75rem;}
 .task-info .task .sub.suffix{font-size:0.83rem;}
 
 body:not(.advanced-ui) .advanced-tool{display:none}
@@ -293,7 +293,7 @@ project license {  display: inline-block; }
 project copyright {  display: inline-block; font-size: 12.5px; } 
 project > * { padding: 2px; }
 
-#kaspa-resources ul li {
+#kobra-resources ul li {
 	font-size: 18px;
 	padding: 6px;
 	--flow-link-font-size:18px;
@@ -383,7 +383,7 @@ fa-icon.warning{--fa-icon-color:red}
     text-overflow: ellipsis;
     font-size: 16px;
     max-width: 500px;
-    min-width: var(--kaspa-wallet-address-input-min-width, 460px);
+    min-width: var(--kobra-wallet-address-input-min-width, 460px);
     background-color: transparent;
     color: var(--flow-primary-color);
     font-family: "Exo 2";

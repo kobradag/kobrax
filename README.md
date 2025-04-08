@@ -19,8 +19,8 @@ KOBRAX is built using [NWJS](https://nwjs.io) and is compatible Windows, Linux a
 
 - [Node.js 14.0.0+](https://nodejs.org/)
 - Emanator - `npm install emanator@latest`
-- Rust (latest, used for building kaspa miner at https://github.com/aspectron/kaspa-miner)
-- Cuda linraries for kaspa miner (depends on the platform)
+- Rust (latest, used for building kobra miner at https://github.com/aspectron/kobra-miner)
+- Cuda linraries for kobra miner (depends on the platform)
 
 **NOTE:** KOBRAX build process builds and includes latest kobra Network binaries from Git master branches. 
 To build from specific branches, you can use `--branch...` flags (see below).
@@ -103,7 +103,7 @@ nw .
 
 #### Building installers from specific kobra Network Git branches
 
-`--branch` argument specifies common branch name for kaspa and kasparov, for example:
+`--branch` argument specifies common branch name for kobra and kobrarov, for example:
 ```
 emanate --branch=v0.4.0-dev 
 ```
@@ -123,7 +123,7 @@ emanate --branch-miningsimulator=v0.1.2-dev
 KOBRAX runtime configuration is declared using a JSON object.  
 
 Each instance of the process is declared using it's **type** (for example: `kobrad`) and a unique **identifier** (`kd0`).  Most process configuration objects support `args` property that allows
-passing arguments or configuration options directly to the process executable.  Depending on the process type, the configuration is passed via command line arguments (kasparov*) or configuration file (kobrad).
+passing arguments or configuration options directly to the process executable.  Depending on the process type, the configuration is passed via command line arguments (kobrarov*) or configuration file (kobrad).
 
 Supported process types:
 - `kobrad` - kobra Network full node
@@ -163,7 +163,7 @@ Supported process types:
 	"mqtt:mq0": {
 		"port": 18792
 	},
-	"kasparovsyncd:kvsd0": {
+	"kobrarovsyncd:kvsd0": {
 		"args": {
 			"rpcserver": "localhost:16310",
 			"dbaddress": "localhost:18787"
@@ -172,7 +172,7 @@ Supported process types:
 			"mqttpass" : "pass"
 		}
 	},
-	"kasparovd:kvd0": {
+	"kobrarovd:kvd0": {
 		"args": {
 			"listen": "localhost:11224",
 			"rpcserver": "localhost:16310",
@@ -193,10 +193,10 @@ KOBRAX can run kobra Network from 2 locations - an integrated `bin` folder that 
 ## KOBRAX Console
 
 KOBRAX Console provides following functionality:
-- Upgrading kasparov using `migrate` command
+- Upgrading kobrarov using `migrate` command
 - `start` and `stop` controls stack runtime
 - kobra Networkd RPC command execution
-- Use of test wallet app (KOBRAX auto-configures kasparov address)
+- Use of test wallet app (KOBRAX auto-configures kobrarov address)
 - Rebuilding kobra Network software stack from within the console
 
 ### Using kobra Networkd RPC

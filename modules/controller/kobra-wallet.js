@@ -1,8 +1,8 @@
-import {KaspaWallet as BaseKaspaWallet} from '/node_modules/@kaspa/ux/kaspa-ux.js';
+import {KobraWallet as BaseKobraWallet} from '/node_modules/@kobra/ux/kobra-ux.js';
 
-class KaspaWallet extends BaseKaspaWallet{
+class KobraWallet extends BaseKobraWallet{
 	makeFaucetRequest(subject, args){
-		let origin = 'https://faucet.kaspanet.io';
+		let origin = 'https://faucet.kobradag.io';
 		//origin = 'http://localhost:3000';
 		const {address, amount} = args;
 		let path = {
@@ -19,4 +19,4 @@ class KaspaWallet extends BaseKaspaWallet{
 	}
 }
 
-KaspaWallet.define("kaspa-wallet")
+KobraWallet.define("kobra-wallet")

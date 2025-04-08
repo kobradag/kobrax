@@ -1,8 +1,8 @@
 {
-    "kaspad-node-only" : {
-        "description" : "Kaspad Node",
+    "kobrad-node-only" : {
+        "description" : "Kobrad Node",
         "modules":{
-            "kaspad:kd0" : {
+            "kobrad:kd0" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten" : "0.0.0.0:16210",
@@ -14,10 +14,10 @@
         }
     },
 
-    "kaspad-mining" : {
-        "description" : "Kaspad Node + Miner",
+    "kobrad-mining" : {
+        "description" : "Kobrad Node + Miner",
         "modules":{
-            "kaspad:kd0" : {
+            "kobrad:kd0" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten" : "0.0.0.0:16210",
@@ -26,19 +26,19 @@
                     "utxoindex" : null
                 }
             },
-            "kaspaminer:km0" : {
+            "kobraminer:km0" : {
                 "args":{
-                    "miningaddr" : "kaspatest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
+                    "miningaddr" : "kobratest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
                     "rpcserver":"localhost:16210",
                     "mine-when-not-synced" : null
                 }
             }
         }
     },
-    "kaspad-standalone-mining" : {
-        "description" : "Self-Contained Kaspad Mining",
+    "kobrad-standalone-mining" : {
+        "description" : "Self-Contained Kobrad Mining",
         "modules":{
-            "kaspad:kd0" : {
+            "kobrad:kd0" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten" : "0.0.0.0:16210",
@@ -47,7 +47,7 @@
                     "utxoindex" : null
                 }
             },
-            "kaspad:kd1" : {
+            "kobrad:kd1" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten":"0.0.0.0:16310",
@@ -57,9 +57,9 @@
                     "utxoindex" : null
                 }
             },
-            "kaspaminer:km0" : {
+            "kobraminer:km0" : {
                 "args":{
-                    "miningaddr" : "kaspatest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
+                    "miningaddr" : "kobratest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
                     "rpcserver":"localhost:16210",
                     "mine-when-not-synced" : null
                 }
@@ -69,7 +69,7 @@
     "full-stack" : {
         "description" : "Full Stack",
         "modules":{
-            "kaspad:kd0" : {
+            "kobrad:kd0" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten" : "0.0.0.0:16210",
@@ -85,14 +85,14 @@
             "mqtt:mq0" : {
                 "port": 19792
             },
-            "kasparovd:kvd0" : {
+            "kobrarovd:kvd0" : {
                 "args":{
                     "listen":"localhost:11224",
                     "rpcserver":"localhost:16210",
                     "dbaddress":"localhost:18787"
                 }
             },
-            "kasparovsyncd:kvsd0" : {
+            "kobrarovsyncd:kvsd0" : {
                 "args":{
                     "rpcserver":"localhost:16210",
                     "dbaddress":"localhost:18787",
@@ -101,9 +101,9 @@
                     "mqttpass" : "pass"
                     }
             },
-            "kaspaminer:km0" : {
+            "kobraminer:km0" : {
                 "args":{
-                    "miningaddr" : "kaspatest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
+                    "miningaddr" : "kobratest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
                     "rpcserver":"localhost:16210",
                     "mine-when-not-synced" : null
                 }
@@ -114,7 +114,7 @@
         "description" : "Full Self-contained Stack",
         "enableMining" : true,
         "modules":{
-            "kaspad:kd0" : {
+            "kobrad:kd0" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten" : "0.0.0.0:16210",
@@ -123,7 +123,7 @@
                     "utxoindex" : null
                 }
             },
-            "kaspad:kd1" : {
+            "kobrad:kd1" : {
                 "reset-peers" : false,
                 "args":{
                     "rpclisten":"0.0.0.0:16310",
@@ -140,14 +140,14 @@
             "mqtt:mq0" : {
                 "port": 19792
             },
-            "kasparovd:kvd0" : {
+            "kobrarovd:kvd0" : {
                 "args":{
                     "listen":"localhost:11224",
                     "rpcserver":"localhost:16210",
                     "dbaddress":"localhost:18787"
                 }
             },
-            "kasparovsyncd:kvsd0" : {
+            "kobrarovsyncd:kvsd0" : {
                 "args":{
                     "rpcserver":"localhost:16210",
                     "dbaddress":"localhost:18787",
@@ -156,9 +156,9 @@
                     "mqttpass" : "pass"
                     }
             },
-            "kaspaminer:km0" : {
+            "kobraminer:km0" : {
                 "args":{
-                    "miningaddr" : "kaspatest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
+                    "miningaddr" : "kobratest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
                     "rpcserver":"localhost:16210",
                     "mine-when-not-synced" : null
                 }

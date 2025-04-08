@@ -5,12 +5,12 @@ version = "package.json::version"
 organization = "ASPECTRON Inc"
 
 [description]
-short = "Desktop Node and Wallet for Kaspa"
+short = "Desktop Node and Wallet for Kobra"
 long = """
 KDX is a desktop wallet and a p2p network node instance. This application
-allows you to participate in the Kaspa network by running a local node
+allows you to participate in the Kobra network by running a local node
 instance and offers access to a local wallet, compatible with the web
-wallet available at https://wallet.kaspanet.io
+wallet available at https://wallet.kobradag.io
 """
 
 [package]
@@ -47,35 +47,35 @@ items = [{ copy = { glob = [
     ], to = "$TARGET", hidden = true}}]
 
 [[dependency]]
-name = "kaspad"
-git = { url = "https://github.com/kaspanet/kaspad", branch = "master" }
+name = "kobrad"
+git = { url = "https://github.com/kobradag/kobrad", branch = "master" }
 run = [
     { cmd = "go build" },
     { cmd = "go build", cwd = "cmd/genkeypair" },
-    { cmd = "go build", cwd = "cmd/kaspactl" },
-    { cmd = "go build", cwd = "cmd/kaspawallet" },
+    { cmd = "go build", cwd = "cmd/kobractl" },
+    { cmd = "go build", cwd = "cmd/kobrawallet" },
 ]
 copy = [
     { regex = [
-        "kaspad(.exe)?$",
+        "kobrad(.exe)?$",
         "genkeypair(.exe)?$",
-        "kaspactl(.exe)?$",
-        "kaspawallet(.exe)?$",
+        "kobractl(.exe)?$",
+        "kobrawallet(.exe)?$",
     ], to = "bin/$PLATFORM-$ARCH", flatten = true },
 ]
 
 [[dependency]]
-name = "kaspa-miner"
+name = "kobra-miner"
 platform = ["windows", "linux"]
-git = { url = "https://github.com/aspectron/kaspa-miner", branch = "main" }
-run = [{ argv = ["cargo","build","--release","-p","kaspacuda"] }]
+git = { url = "https://github.com/aspectron/kobra-miner", branch = "main" }
+run = [{ argv = ["cargo","build","--release","-p","kobracuda"] }]
 copy = [
     { regex = [
-        "target/release/kaspacuda(.so|.dll)$",
-        "target/release/kaspaopencl(.so|.dll)$",
-        "target/release/kaspa-miner(.exe)?$",
+        "target/release/kobracuda(.so|.dll)$",
+        "target/release/kobraopencl(.so|.dll)$",
+        "target/release/kobra-miner(.exe)?$",
     ], to = "bin/$PLATFORM-$ARCH", flatten = true },
-    # { file = "target/release/kaspa-miner$EXE", to = "bin/$PLATFORM-$ARCH/gpuminer$EXE" },
+    # { file = "target/release/kobra-miner$EXE", to = "bin/$PLATFORM-$ARCH/gpuminer$EXE" },
 ]
 
 [nwjs]
@@ -92,7 +92,7 @@ system_applications_folder_position = [385,158]
 
 [windows]
 uuid = "c1072045-6d98-44d8-9aa5-e9be6c79bd01"
-group = "Kaspa"
+group = "Kobra"
 # run_on_startup = "everyone"
 run_after_setup = true
 
@@ -110,6 +110,6 @@ languages = ["english","french"]
 [firewall]
 application = { direction = "in+out" }
 rules = [
-    { name = "Kaspa Node", program = "bin/windows-x64/kaspad.exe", direction="in+out" },
-    { name = "Kaspa GPU Miner", program = "bin/windows-x64/gpuminer.exe", direction="out" }
+    { name = "Kobra Node", program = "bin/windows-x64/kobrad.exe", direction="in+out" },
+    { name = "Kobra GPU Miner", program = "bin/windows-x64/gpuminer.exe", direction="out" }
 ]

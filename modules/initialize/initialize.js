@@ -71,7 +71,7 @@ class Initializer{
 
 //		this.tpl_network = 'testnet';
 		this.tpl_network = 'mainnet';
-		this.tpl_template = 'kaspad-node-only';
+		this.tpl_template = 'kobrad-node-only';
 
 		try {
 			this.templates = JSON.parse(fs.readFileSync(path.join(this.appFolder,'.templates'))+'');

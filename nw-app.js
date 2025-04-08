@@ -26,7 +26,7 @@ class NWApp extends App{
 			nw.Window.open('modules/controller/controller.html', {
 				//new_instance: true,
 				id: 'kobrad',
-				title: 'KaspaDX',
+				title: 'KobraDX',
 				width: 1027,
 				height: 768,
 				resizable: true,
@@ -50,7 +50,7 @@ class NWApp extends App{
 		nw.Window.open('modules/initialize/initialize.html', {
 			//new_instance: true,
 			id: 'initialize',
-			title: 'KaspaDX',
+			title: 'KobraDX',
 			width: 1027,
 			height: 768,
 			resizable: true,
