@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const { Command, Option } = require('commander');
-const { RPC } = require('@kobra/grpc-node');
+const { RPC } = require('@kaspa/grpc-node');
 const pkg = require('./package.json');
 const { fstat } = require('fs');
 const { colors } = require('@aspectron/colors.ts');

@@ -67,7 +67,7 @@ copy = [
 [[dependency]]
 name = "kobra-miner"
 platform = ["windows", "linux"]
-git = { url = "https://github.com/aspectron/kobra-miner", branch = "main" }
+git = { url = "https://github.com/kobradag/koda-miner-gpu", branch = "main" }
 run = [{ argv = ["cargo","build","--release","-p","kobracuda"] }]
 copy = [
     { regex = [

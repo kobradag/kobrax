@@ -1,6 +1,6 @@
 # KOBRAX
 
-KOBRAX is a dedicated desktop process manager for [kobra Network node](https://github.com/kobradag/KOBRAD).
+KOBRAX is a dedicated desktop process manager for [kobra Network node](https://github.com/kobradag/kobrad).
 
 
 KOBRAX offers a miniature console using which user can re-build the kobra Network stack, upgrading kobra Network to the latest version directly from GitHub. The build process is automated via a series of scripts that, if
@@ -19,7 +19,7 @@ KOBRAX is built using [NWJS](https://nwjs.io) and is compatible Windows, Linux a
 
 - [Node.js 14.0.0+](https://nodejs.org/)
 - Emanator - `npm install emanator@latest`
-- Rust (latest, used for building kobra miner at https://github.com/aspectron/kobra-miner)
+- Rust (latest, used for building kobra miner at https://github.com/kobradag/koda-miner-gpu)
 - Cuda linraries for kobra miner (depends on the platform)
 
 **NOTE:** KOBRAX build process builds and includes latest kobra Network binaries from Git master branches. 

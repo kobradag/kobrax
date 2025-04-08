@@ -14,7 +14,7 @@ const Console = require("../../lib/console.js")
 const StatsD = require('node-statsd');
 const semver = require('semver');
 
-const {RPC} = require('@kobra/grpc-node');
+const {RPC} = require('@kaspa/grpc-node');
 import {html, render} from 'lit-html';
 import {repeat} from 'lit-html/directives/repeat.js';
 import {
@@ -28,13 +28,13 @@ window.getLocalSetting = getLocalSetting;
 window.setLocalSetting = setLocalSetting;
 //TODO
 window.PWA_MODULES={};
-window.PWA_MODULES["@kobra/wallet-pwa"] = "N/A";
+window.PWA_MODULES["@kaspa/wallet-pwa"] = "N/A";
 window.PWA_MODULES["@aspectron/flow-ux"] = "N/A";
-window.PWA_MODULES["@kobra/ux"] = "N/A";
-window.PWA_MODULES["@kobra/grpc-web"] = "N/A";
-window.PWA_MODULES["@kobra/wallet"] = "N/A";
-window.PWA_MODULES["@kobra/grpc"] = "N/A";
-window.PWA_MODULES["@kobra/core-lib"] = "N/A";
+window.PWA_MODULES["@kaspa/ux"] = "N/A";
+window.PWA_MODULES["@kaspa/grpc-web"] = "N/A";
+window.PWA_MODULES["@kaspa/wallet"] = "N/A";
+window.PWA_MODULES["@kaspa/grpc"] = "N/A";
+window.PWA_MODULES["@kaspa/core-lib"] = "N/A";
 
 class KDXApp extends FlowApp{
 	render(){

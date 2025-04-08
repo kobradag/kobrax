@@ -151,7 +151,7 @@ const miner = E.task('miner', ['origin'], async () => {
     console.log('miner dest:', dest);
     
     //const repos = { };
-    const repos = [`kobra-miner:${branch}`];
+    const repos = [`koda-miner-gpu:${branch}`];
     console.log("REPOS:".brightMagenta,repos);
 
     for(const repo of repos) {

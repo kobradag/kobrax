@@ -1,4 +1,4 @@
-import {KobraWallet as BaseKobraWallet} from '/node_modules/@kobra/ux/kobra-ux.js';
+import {KobraWallet as BaseKobraWallet} from '/node_modules/@kaspa/ux/kaspa-ux.js';
 
 class KobraWallet extends BaseKobraWallet{
 	makeFaucetRequest(subject, args){

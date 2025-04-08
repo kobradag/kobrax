@@ -1,4 +1,4 @@
-const mod = require("@kobra/wallet-worker");
+const mod = require("@kaspa/wallet-worker");
 export const {
     Wallet, initKobraFramework, log, workerLog, Core, Storage, helper,
     CONFIRMATION_COUNT, COINBASE_CFM_COUNT
