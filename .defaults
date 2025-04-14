@@ -1,0 +1,13 @@
+{
+	"enableMining": false,
+	"modules": {
+		"kobrad:kd0": {
+			"reset-peers": false,
+			"args": {
+				"rpclisten": "0.0.0.0:44448",
+				"listen": "0.0.0.0:44447",
+				"profile": 8200
+			}
+		}
+	}
+}

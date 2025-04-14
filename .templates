@@ -1,0 +1,29 @@
+{
+	"kobrad-node-only": {
+		"description": "Kobrad Node",
+		"modules": {
+			"kobrad:kd0": {
+				"reset-peers": false,
+				"args":{
+					"rpclisten": "0.0.0.0:42110",
+					"listen": "0.0.0.0:42111",
+					"profile": 8200
+				}
+			}
+		}
+	},
+	"kobrad-archival-only" : {
+		"description": "Kobrad Archival Node",
+		"modules": {
+			"kobrad:kd0": {
+				"reset-peers": false,
+				"args": {
+					"archival": null,
+					"rpclisten": "0.0.0.0:42110",
+					"listen": "0.0.0.0:42111",
+					"profile": 8200
+				}
+			}
+		}
+	}
+}
