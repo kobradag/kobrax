@@ -172,7 +172,7 @@ you must use an array of addresses as follows: `"args" : { "connect" : [ "peer-a
 			"reset-peers": false,
 			"args": {
 				"rpclisten": "0.0.0.0:44448",
-				"listen": "0.0.0.0:44450",
+				"listen": "0.0.0.0:44447",
 				"profile": 8200
 			},
 			"upnpEnabled": true
